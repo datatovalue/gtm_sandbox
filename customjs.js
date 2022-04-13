@@ -1,5 +1,27 @@
 /* global bootstrap: false */
 
+function pushToDataLayer(event){
+  window.dataLayer = window.dataLayer || [];
+  var value = document.getElementById("dl-"+event).value;
+
+  console.log(event);
+  
+  try{
+    JSON.parse(value);
+  }catch(e){
+    console.log("that's not valid object");
+    return;
+  }
+
+  if(JSON.parse(value).ecommerce != undefined){
+    dataLayer.push({"ecommerce": null});
+  }
+
+  window.dataLayer.push(JSON.parse(value));
+  console.log("data successfully pushed to dataLayer");
+  console.log(JSON.parse(value));
+}
+
 (function () {
   'use strict'
 

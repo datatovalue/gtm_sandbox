@@ -8,23 +8,588 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <script type="text/javascript" src="./customjs.js"></script>
+
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
-<section>
-  <div>
-    <div class="input-group">
-      <span class="input-group-text">With textarea</span>
-      <textarea class="form-control" aria-label="With textarea" value="the datalayer code we want to execute"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-</section>
 
+    <section>
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">custom_event</span>
+          <textarea id="dl-custom_event" class="form-control" placeholder="Push custom object to dataLayer..." rows="3">{"event": "custom_event"}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('custom_event')">Push custom_event</button>
+      </div>
+    </section>
 
+    <section>
+      <h3>Product Views and Interactions</h3>
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">view_item_list</span>
+          <textarea id="dl-view_item_list" class="form-control" rows="15">
+            {
+              "event": "view_item_list",
+              "ecommerce": {
+                "items": [
+                 {
+                  "item_id": "SKU_12345",
+                  "item_name": "Stan and Friends Tee",
+                  "affiliation": "Google Merchandise Store",
+                  "coupon": "SUMMER_FUN",
+                  "currency": "USD",
+                  "discount": 2.22,
+                  "index": 0,
+                  "item_brand": "Google",
+                  "item_category": "Apparel",
+                  "item_category2": "Adult",
+                  "item_category3": "Shirts",
+                  "item_category4": "Crew",
+                  "item_category5": "Short sleeve",
+                  "item_list_id": "related_products",
+                  "item_list_name": "Related Products",
+                  "item_variant": "green",
+                  "location_id": "L_12345",
+                  "price": 9.99,
+                  "quantity": 1
+                },
+                {
+                  "item_id": "SKU_12346",
+                  "item_name": "Google Grey Women's Tee",
+                  "affiliation": "Google Merchandise Store",
+                  "coupon": "SUMMER_FUN",
+                  "currency": "USD",
+                  "discount": 3.33,
+                  "index": 1,
+                  "item_brand": "Google",
+                  "item_category": "Apparel",
+                  "item_category2": "Adult",
+                  "item_category3": "Shirts",
+                  "item_category4": "Crew",
+                  "item_category5": "Short sleeve",
+                  "item_list_id": "related_products",
+                  "item_list_name": "Related Products",
+                  "item_variant": "gray",
+                  "location_id": "L_12345",
+                  "price": 20.99,
+                  "promotion_id": "P_12345",
+                  "promotion_name": "Summer Sale",
+                  "quantity": 1
+                }]
+              }
+            }</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_item_list')">Push view_item_list</button>
+      </div>
 
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">select_item</span>
+          <textarea id="dl-select_item" class="form-control" rows="15">{
+  "event": "select_item",
+  "ecommerce": {
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('select_item')">Push select_item</button>
+      </div>
 
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">view_item</span>
+          <textarea id="dl-view_item" class="form-control" rows="15">{
+  "event": "view_item",
+  "ecommerce": {
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_item')">Push view_item</button>
+      </div>
+
+      <h3>Internal Promotions</h3>
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">view_promotion</span>
+          <textarea id="dl-view_promotion" class="form-control" rows="15">{
+  "event": "view_promotion",
+  "ecommerce": {
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_promotion')">Push view_promotion</button>
+      </div>
+
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">select_promotion</span>
+          <textarea id="dl-select_promotion" class="form-control" rows="15">{
+  "event": "select_promotion",
+  "ecommerce": {
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('select_promotion')">Push select_promotion</button>
+      </div>
+
+      <h3>Shopping Cart Interactions</h3>
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">add_to_cart</span>
+          <textarea id="dl-add_to_cart" class="form-control" rows="15">{
+  "event": "add_to_cart",
+  "ecommerce": {
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_to_cart')">Push add_to_cart</button>
+      </div>
+
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">add_to_wishlist</span>
+          <textarea id="dl-add_to_wishlist" class="form-control" rows="15">{
+  "event": "add_to_wishlist",
+  "ecommerce": {
+    "currency": "USD",
+    "value": 7.77,
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_to_wishlist')">Push add_to_wishlist</button>
+      </div>
+
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">remove_from_cart</span>
+          <textarea id="dl-remove_from_cart" class="form-control" rows="15">{
+  "event": "remove_from_cart",
+  "ecommerce": {
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('remove_from_cart')">Push remove_from_cart</button>
+      </div>
+
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">view_cart</span>
+          <textarea id="dl-view_cart" class="form-control" rows="15">{
+  "event": "view_cart",
+  "ecommerce": {
+    "currency": "USD",
+    "value": 7.77,
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_cart')">Push view_cart</button>
+      </div>
+
+      <h3>Checkout Funnel</h3>
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">begin_checkout</span>
+          <textarea id="dl-begin_checkout" class="form-control" rows="15">{
+  "event": "begin_checkout",
+  "ecommerce": {
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('begin_checkout')">Push begin_checkout</button>
+      </div>
+
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">add_payment_method</span>
+          <textarea id="dl-add_payment_method" class="form-control" rows="15">{
+  "event": "add_payment_info",
+  "ecommerce": {
+    "currency": "USD",
+    "value": 7.77,
+    "coupon": "SUMMER_FUN",
+    "payment_type": "Credit Card",
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_payment_method')">Push add_payment_method</button>
+      </div>
+
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">add_shipping_information</span>
+          <textarea id="dl-add_shipping_information" class="form-control" rows="15">{
+  "event": "add_shipping_info",
+  "ecommerce": {
+    "currency": "USD",
+    "value": 7.77,
+    "coupon": "SUMMER_FUN",
+    "shipping_tier": "Ground",
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_shipping_information')">Push add_shipping_information</button>
+      </div>
+
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">purchase</span>
+          <textarea id="dl-purchase" class="form-control" rows="15">{
+  "event": "purchase",
+  "ecommerce": {
+      "transaction_id": "T_12345",
+      "affiliation": "Google Merchandise Store",
+      "value": 25.42,
+      "tax": 4.90,
+      "shipping": 5.99,
+      "currency": "USD",
+      "coupon": "SUMMER_SALE",
+      "items": [
+       {
+        "item_id": "SKU_12345",
+        "item_name": "Stan and Friends Tee",
+        "affiliation": "Google Merchandise Store",
+        "coupon": "SUMMER_FUN",
+        "currency": "USD",
+        "discount": 2.22,
+        "index": 0,
+        "item_brand": "Google",
+        "item_category": "Apparel",
+        "item_category2": "Adult",
+        "item_category3": "Shirts",
+        "item_category4": "Crew",
+        "item_category5": "Short sleeve",
+        "item_list_id": "related_products",
+        "item_list_name": "Related Products",
+        "item_variant": "green",
+        "location_id": "L_12345",
+        "price": 9.99,
+        "quantity": 1
+      },
+      {
+        "item_id": "SKU_12346",
+        "item_name": "Google Grey Women's Tee",
+        "affiliation": "Google Merchandise Store",
+        "coupon": "SUMMER_FUN",
+        "currency": "USD",
+        "discount": 3.33,
+        "index": 1,
+        "item_brand": "Google",
+        "item_category": "Apparel",
+        "item_category2": "Adult",
+        "item_category3": "Shirts",
+        "item_category4": "Crew",
+        "item_category5": "Short sleeve",
+        "item_list_id": "related_products",
+        "item_list_name": "Related Products",
+        "item_variant": "gray",
+        "location_id": "L_12345",
+        "price": 20.99,
+        "promotion_id": "P_12345",
+        "promotion_name": "Summer Sale",
+        "quantity": 1
+      }]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('purchase')">Push purchase</button>
+      </div>
+
+      <div>
+        <div class="input-group">
+          <span class="input-group-text">refund</span>
+          <textarea id="dl-refund" class="form-control" rows="15">{
+  "event": "refund",
+  "ecommerce": {
+    "currency": "USD",
+    "transaction_id": "T_12345",
+    "value": 12.21,
+    "affiliation": "Google Merchandise Store",
+    "coupon": "SUMMER_FUN",
+    "shipping": 3.33,
+    "tax": 1.11,
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('refund')">Push refund</button>
+      </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
