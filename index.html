@@ -59,7 +59,7 @@
 
 <div class="container">
 
-    <section class="container px-10 gx-10">
+    <section class="container px-10 gx-10 mb-5">
       <div>
         <div class="input-group mb-2">
           <span class="input-group-text">custom_event</span>
@@ -69,10 +69,10 @@
       </div>
     </section>
 
-    <section>
+    <section class="container px-10 gx-10 mb-5">
       <h3>Product Views and Interactions</h3>
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">view_item_list</span>
           <textarea id="dl-view_item_list" class="form-control" rows="15">
             {
@@ -130,7 +130,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">select_item</span>
           <textarea id="dl-select_item" class="form-control" rows="15">{
   "event": "select_item",
@@ -165,7 +165,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">view_item</span>
           <textarea id="dl-view_item" class="form-control" rows="15">{
   "event": "view_item",
@@ -199,9 +199,10 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_item')">Push view_item</button>
       </div>
 
+<section class="container px-10 gx-10 mb-5">
       <h3>Internal Promotions</h3>
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">view_promotion</span>
           <textarea id="dl-view_promotion" class="form-control" rows="15">{
   "event": "view_promotion",
@@ -236,7 +237,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">select_promotion</span>
           <textarea id="dl-select_promotion" class="form-control" rows="15">{
   "event": "select_promotion",
@@ -269,10 +270,11 @@
         </div>
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('select_promotion')">Push select_promotion</button>
       </div>
-
+</section>
+<section class="container px-10 gx-10 mb-5">
       <h3>Shopping Cart Interactions</h3>
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">add_to_cart</span>
           <textarea id="dl-add_to_cart" class="form-control" rows="15">{
   "event": "add_to_cart",
@@ -307,7 +309,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">add_to_wishlist</span>
           <textarea id="dl-add_to_wishlist" class="form-control" rows="15">{
   "event": "add_to_wishlist",
@@ -344,7 +346,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">remove_from_cart</span>
           <textarea id="dl-remove_from_cart" class="form-control" rows="15">{
   "event": "remove_from_cart",
@@ -379,7 +381,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">view_cart</span>
           <textarea id="dl-view_cart" class="form-control" rows="15">{
   "event": "view_cart",
@@ -414,10 +416,11 @@
         </div>
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_cart')">Push view_cart</button>
       </div>
-
+</section>
+<section class="container px-10 gx-10 mb-5">
       <h3>Checkout Funnel</h3>
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">begin_checkout</span>
           <textarea id="dl-begin_checkout" class="form-control" rows="15">{
   "event": "begin_checkout",
@@ -452,7 +455,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">add_payment_method</span>
           <textarea id="dl-add_payment_method" class="form-control" rows="15">{
   "event": "add_payment_info",
@@ -491,7 +494,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">add_shipping_information</span>
           <textarea id="dl-add_shipping_information" class="form-control" rows="15">{
   "event": "add_shipping_info",
@@ -530,7 +533,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">purchase</span>
           <textarea id="dl-purchase" class="form-control" rows="15">{
   "event": "purchase",
@@ -594,7 +597,7 @@
       </div>
 
       <div>
-        <div class="input-group">
+        <div class="input-group mb-2">
           <span class="input-group-text">refund</span>
           <textarea id="dl-refund" class="form-control" rows="15">{
   "event": "refund",
