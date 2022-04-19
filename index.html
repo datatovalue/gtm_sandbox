@@ -25,13 +25,19 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#custom_event">Custom Event</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#product_views">Product Views</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
+              <a class="nav-link" href="#internal_promotions">Promotions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#shopping_cart">Cart</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#checkout">Checkout</a>
             </li>
           </ul>
           <form class="d-flex">
@@ -59,7 +65,7 @@
 
 <div class="container">
 
-    <section class="container px-10 gx-10 mb-5">
+    <section id="custom_event" class="container px-10 gx-10 mb-5">
       <div>
         <div class="input-group mb-2">
           <span class="input-group-text">custom_event</span>
@@ -69,7 +75,7 @@
       </div>
     </section>
 
-    <section class="container px-10 gx-10 mb-5">
+    <section id="product_views" class="container px-10 gx-10 mb-5">
       <h3>Product Views and Interactions</h3>
       <div>
         <div class="input-group mb-2">
@@ -198,8 +204,9 @@
         </div>
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_item')">Push view_item</button>
       </div>
+</section>
 
-<section class="container px-10 gx-10 mb-5">
+<section id="internal_promotions" class="container px-10 gx-10 mb-5">
       <h3>Internal Promotions</h3>
       <div>
         <div class="input-group mb-2">
@@ -271,7 +278,7 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('select_promotion')">Push select_promotion</button>
       </div>
 </section>
-<section class="container px-10 gx-10 mb-5">
+<section id="shopping_cart" class="container px-10 gx-10 mb-5">
       <h3>Shopping Cart Interactions</h3>
       <div>
         <div class="input-group mb-2">
@@ -417,7 +424,7 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_cart')">Push view_cart</button>
       </div>
 </section>
-<section class="container px-10 gx-10 mb-5">
+<section id="checkout" class="container px-10 gx-10 mb-5">
       <h3>Checkout Funnel</h3>
       <div>
         <div class="input-group mb-2">
