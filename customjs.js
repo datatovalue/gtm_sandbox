@@ -108,6 +108,7 @@ function saveToLocalStorage(){
 
 (function (){
   var value = localStorage.getItem("dl-init");
+
   if(value){
     try{
       JSON.parse(value);
@@ -122,3 +123,17 @@ function saveToLocalStorage(){
 
   return true;
 })();
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  var value = localStorage.getItem("dl-init");
+
+  if(value){
+    try{
+      JSON.parse(value);
+    }catch(e){
+      console.log("that's not valid object");
+      return;
+    }
+  }
+  document.getElementById("dl-init").innerHTML = value;
+})
