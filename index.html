@@ -57,6 +57,17 @@
 
 <div class="container">
 
+    <section id="dl_init" class="container px-10 gx-10 mb-5">
+      <h3>Initialization</h3>
+      <div>
+        <div class="input-group mb-2">
+          <span class="input-group-text">Initialization</span>
+          <textarea id="dl-init" class="form-control" placeholder="Push custom object to dataLayer..." rows="3">{"page_type": "blog post", "article_category": "analytics", "author": "krista seiden"}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary yellow" onclick="saveToLocalStorage('store_to_local_storage')">Save dataLayer Initialization</button>
+      </div>
+    </section>
+
     <section id="custom_event" class="container px-10 gx-10 mb-5">
       <h3>Custom Event</h3>
       <div>

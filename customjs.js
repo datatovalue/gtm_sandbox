@@ -87,4 +87,38 @@ function pushToDataLayer(event){
 
   setActiveItem()
   window.addEventListener('hashchange', setActiveItem)
-})()
+})();
+
+function saveToLocalStorage(){
+  var value = document.getElementById("dl-init").value;
+
+  console.log(event);
+  
+  try{
+    JSON.parse(value);
+  }catch(e){
+    console.log("that's not valid object");
+    return;
+  }
+
+  localStorage.setItem("dl-init",value);
+
+  return true;
+}
+
+(function (){
+  var value = localStorage.getItem("dl-init");
+  if(value){
+    try{
+      JSON.parse(value);
+    }catch(e){
+      console.log("that's not valid object");
+      return;
+    }
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(JSON.parse(value));
+
+  return true;
+})();
