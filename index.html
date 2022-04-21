@@ -47,7 +47,14 @@
 
 <section>
   <div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mb-4" src="https://datatovalue.nl/wp-content/uploads/2021/11/cropped-Datatovalue_logo_middel_zwartblauw.png" alt="" width="300px">
+    <div class="row mb-2">
+      <div class="col-6 themed-grid-col">
+    <img class="d-block mx-auto mb-4" src="https://datatovalue.nl/wp-content/uploads/2021/11/cropped-Datatovalue_logo_middel_zwartblauw.png" alt="" width="100px" align="right">
+  </div>
+  <div class="col-6 themed-grid-col">
+    <img class="d-block mx-auto mb-4" src="https://ksdigital.co/wp-content/uploads/2020/01/cropped-KS-Digital-Logo-main-1.png" alt="" width="100px" align="left">
+  </div>
+  </div>
     <h1 class="display-5 fw-bold">dataLayer Sandbox</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">This page is used to experiment with the dataLayer and the default hits required for a Google Analytics 4 implementation. We use it mainly for educational purposes, like our <a href="https://academy.ksdigital.co/courses/ga4-technical-implementation" target="_blank">Technical Deep-Dive course for Google Analytics 4 together with Krista Seiden</a>.</p>
@@ -56,17 +63,22 @@
 </section>
 
 <div class="container">
-
+  <h2>dataLayer Initialization</h2>
+  <p>In this section you can configure the dataLayer that you want to be present when you refresh this page. By default it's empty, but you can change that.</p>
     <section id="dl_init" class="container px-10 gx-10 mb-5">
-      <h3>Initialization</h3>
+      <h3>Configure Initialization</h3>
+      <p>This allows you to define what the dataLayer should look like when you refresh this page. Fill it out, save it, and once you refresh, these values will be in the dataLayer upon reload.</p>
       <div>
         <div class="input-group mb-2">
           <span class="input-group-text">Initialization</span>
           <textarea id="dl-init" class="form-control" placeholder="Push custom object to dataLayer..." rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary yellow" onclick="saveToLocalStorage()">Save dataLayer Initialization</button>
+        <button type="submit" class="btn btn-success" onclick="saveToLocalStorage('store_to_local_storage')">Save dataLayer Initialization</button>
       </div>
     </section>
+
+        <h2>dataLayer Pushes</h2>
+    <p>All the forms below execute a dataLayer.push for the contained text. By default, the page is filled with the most common Google Analytics 4 Events, but you can change them all.</p>
 
     <section id="custom_event" class="container px-10 gx-10 mb-5">
       <h3>Custom Event</h3>
