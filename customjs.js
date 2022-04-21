@@ -127,6 +127,9 @@ function saveToLocalStorage(){
 document.addEventListener('DOMContentLoaded', (event) => {
   var value = localStorage.getItem("dl-init");
 
+  if(value == undefined)
+    value = '{"page_type": "blog post", "article_category": "analytics", "author": "krista seiden"}';
+
   if(value){
     try{
       JSON.parse(value);
