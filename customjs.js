@@ -109,19 +109,16 @@ function saveToLocalStorage(){
 (function (){
   var value = localStorage.getItem("dl-init");
 
-  if(value){
     try{
       JSON.parse(value);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(JSON.parse(value));
+
+      return true;
     }catch(e){
       console.log("that's not valid object");
       return;
     }
-  }
-
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(JSON.parse(value));
-
-  return true;
 })();
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -130,13 +127,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
   if(value == undefined)
     value = '{"page_type": "blog post", "article_category": "analytics", "author": "krista seiden"}';
 
-  if(value){
-    try{
-      JSON.parse(value);
-    }catch(e){
-      console.log("that's not valid object");
-      return;
-    }
+  try{
+    JSON.parse(value);
+    document.getElementById("dl-init").innerHTML = value;
+
+    return true;
+  }catch(e){
+    console.log("that's not valid object");
+    return;
   }
-  document.getElementById("dl-init").innerHTML = value;
 })
