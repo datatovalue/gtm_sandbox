@@ -279,6 +279,40 @@
 </section>
 <section id="shopping_cart" class="container px-10 gx-10 mb-5">
       <h3>Shopping Cart Interactions</h3>
+
+      <div class="container px-10 gx-10 mb-5">
+        <h4>Add to Wishlist</h4>
+        <div class="input-group mb-2">
+          <span class="input-group-text">add_to_wishlist</span>
+          <textarea id="dl-add_to_wishlist" class="form-control" rows="15">{
+  "event": "add_to_wishlist",
+  "ecommerce": {
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_to_wishlist')">Push add_to_wishlist</button>
+      </div>
+
       <div class="container px-10 gx-10 mb-5">
         <h4>Add to Cart</h4>
         <div class="input-group mb-2">
@@ -315,40 +349,7 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_to_cart')">Push add_to_cart</button>
       </div>
 
-      <div class="container px-10 gx-10 mb-5">
-        <h4>Add to Wishlist</h4>
-        <div class="input-group mb-2">
-          <span class="input-group-text">add_to_wishlist</span>
-          <textarea id="dl-add_to_wishlist" class="form-control" rows="15">{
-  "event": "add_to_wishlist",
-  "ecommerce": {
-    "items": [
-    {
-      "item_id": "SKU_12345",
-      "item_name": "Stan and Friends Tee",
-      "affiliation": "Google Merchandise Store",
-      "coupon": "SUMMER_FUN",
-      "currency": "USD",
-      "item_brand": "Google",
-      "item_category": "Apparel",
-      "item_category2": "Adult",
-      "item_category3": "Shirts",
-      "item_category4": "Crew",
-      "item_category5": "Short sleeve",
-      "item_list_id": "related_products",
-      "item_list_name": "Related Products",
-      "item_variant": "green",
-      "price": 9.99,
-      "quantity": 1
-    }
-    ]
-  }
-}</textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_to_wishlist')">Push add_to_wishlist</button>
-      </div>
-
-      <div class="container px-10 gx-10 mb-5">
+           <div class="container px-10 gx-10 mb-5">
         <h4>Remove from Cart</h4>
         <div class="input-group mb-2">
           <span class="input-group-text">remove_from_cart</span>
