@@ -349,6 +349,42 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_to_cart')">Push add_to_cart</button>
       </div>
 
+      <div class="container px-10 gx-10 mb-5">
+        <h4>View Cart</h4>
+        <div class="input-group mb-2">
+          <span class="input-group-text">view_cart</span>
+          <textarea id="dl-view_cart" class="form-control" rows="15">{
+  "event": "view_cart",
+  "ecommerce": {
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_cart')">Push view_cart</button>
+      </div>
+
            <div class="container px-10 gx-10 mb-5">
         <h4>Remove from Cart</h4>
         <div class="input-group mb-2">
@@ -385,44 +421,8 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('remove_from_cart')">Push remove_from_cart</button>
       </div>
 
-      <div class="container px-10 gx-10 mb-5">
-        <h4>View Cart</h4>
-        <div class="input-group mb-2">
-          <span class="input-group-text">view_cart</span>
-          <textarea id="dl-view_cart" class="form-control" rows="15">{
-  "event": "view_cart",
-  "ecommerce": {
-    "currency": "USD",
-    "value": 7.77,
-    "items": [
-    {
-      "item_id": "SKU_12345",
-      "item_name": "Stan and Friends Tee",
-      "affiliation": "Google Merchandise Store",
-      "coupon": "SUMMER_FUN",
-      "currency": "USD",
-      "discount": 2.22,
-      "index": 0,
-      "item_brand": "Google",
-      "item_category": "Apparel",
-      "item_category2": "Adult",
-      "item_category3": "Shirts",
-      "item_category4": "Crew",
-      "item_category5": "Short sleeve",
-      "item_list_id": "related_products",
-      "item_list_name": "Related Products",
-      "item_variant": "green",
-      "location_id": "L_12345",
-      "price": 9.99,
-      "quantity": 1
-    }
-    ]
-  }
-}</textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('view_cart')">Push view_cart</button>
-      </div>
 </section>
+
 <section id="checkout" class="container px-10 gx-10 mb-5">
       <h3>Checkout Funnel</h3>
       <div class="container px-10 gx-10 mb-5">
@@ -461,6 +461,44 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('begin_checkout')">Push begin_checkout</button>
       </div>
 
+
+      <div class="container px-10 gx-10 mb-5">
+        <h4>Add Shipping Information</h4>
+        <div class="input-group mb-2">
+          <span class="input-group-text">add_shipping_information</span>
+          <textarea id="dl-add_shipping_information" class="form-control" rows="15">{
+  "event": "add_shipping_info",
+  "ecommerce": {
+    "shipping_tier": "SuperFastDeluxeShipping",
+    "items": [
+    {
+      "item_id": "SKU_12345",
+      "item_name": "Stan and Friends Tee",
+      "affiliation": "Google Merchandise Store",
+      "coupon": "SUMMER_FUN",
+      "currency": "USD",
+      "discount": 2.22,
+      "index": 0,
+      "item_brand": "Google",
+      "item_category": "Apparel",
+      "item_category2": "Adult",
+      "item_category3": "Shirts",
+      "item_category4": "Crew",
+      "item_category5": "Short sleeve",
+      "item_list_id": "related_products",
+      "item_list_name": "Related Products",
+      "item_variant": "green",
+      "location_id": "L_12345",
+      "price": 9.99,
+      "quantity": 1
+    }
+    ]
+  }
+}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_shipping_information')">Push add_shipping_information</button>
+      </div>
+
       <div class="container px-10 gx-10 mb-5">
         <h4>Add Payment Method</h4>
         <div class="input-group mb-2">
@@ -468,9 +506,6 @@
           <textarea id="dl-add_payment_method" class="form-control" rows="15">{
   "event": "add_payment_info",
   "ecommerce": {
-    "currency": "USD",
-    "value": 7.77,
-    "coupon": "SUMMER_FUN",
     "payment_type": "Credit Card",
     "items": [
     {
@@ -501,45 +536,6 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_payment_method')">Push add_payment_method</button>
       </div>
 
-      <div class="container px-10 gx-10 mb-5">
-        <h4>Add Shipping Information</h4>
-        <div class="input-group mb-2">
-          <span class="input-group-text">add_shipping_information</span>
-          <textarea id="dl-add_shipping_information" class="form-control" rows="15">{
-  "event": "add_shipping_info",
-  "ecommerce": {
-    "currency": "USD",
-    "value": 7.77,
-    "coupon": "SUMMER_FUN",
-    "shipping_tier": "Ground",
-    "items": [
-    {
-      "item_id": "SKU_12345",
-      "item_name": "Stan and Friends Tee",
-      "affiliation": "Google Merchandise Store",
-      "coupon": "SUMMER_FUN",
-      "currency": "USD",
-      "discount": 2.22,
-      "index": 0,
-      "item_brand": "Google",
-      "item_category": "Apparel",
-      "item_category2": "Adult",
-      "item_category3": "Shirts",
-      "item_category4": "Crew",
-      "item_category5": "Short sleeve",
-      "item_list_id": "related_products",
-      "item_list_name": "Related Products",
-      "item_variant": "green",
-      "location_id": "L_12345",
-      "price": 9.99,
-      "quantity": 1
-    }
-    ]
-  }
-}</textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_shipping_information')">Push add_shipping_information</button>
-      </div>
 
       <div class="container px-10 gx-10 mb-5">
         <h4>Purchase (Transaction)</h4>
