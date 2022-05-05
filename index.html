@@ -610,7 +610,7 @@
         <h4>Full Refund</h4>
         <div class="input-group mb-2">
           <span class="input-group-text">refund</span>
-          <textarea id="dl-refund" class="form-control" rows="15">{
+          <textarea id="dl-full-refund" class="form-control" rows="15">{
   "event": "refund",
   "ecommerce": {
     "transaction_id": "T_12345"
@@ -618,7 +618,7 @@
   }
 }</textarea>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('refund')">Push refund</button>
+        <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('full-refund')">Push full refund</button>
       </div>
     </div>
 
@@ -626,7 +626,7 @@
       <h4>Partial Refund</h4>
       <div class="input-group mb-2">
         <span class="input-group-text">refund</span>
-        <textarea id="dl-refund" class="form-control" rows="15">{
+        <textarea id="dl-partial-refund" class="form-control" rows="15">{
 "event": "refund",
 "ecommerce": {
   "transaction_id": "T_12345",
@@ -649,7 +649,7 @@
 }
 }</textarea>
       </div>
-      <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('refund')">Push refund</button>
+      <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('partial-refund')">Push partial refund</button>
     </div>
   </div>
     </section>
