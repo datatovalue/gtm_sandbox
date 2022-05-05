@@ -535,7 +535,9 @@
         </div>
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('add_payment_method')">Push add_payment_method</button>
       </div>
-
+</section>
+<section id="checkout" class="container px-10 gx-10 mb-5">
+  <h3>Purchase</h3>
 
       <div class="container px-10 gx-10 mb-5">
         <h4>Purchase (Transaction)</h4>
@@ -601,43 +603,17 @@
         </div>
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('purchase')">Push purchase</button>
       </div>
-
+</section>
+<section id="checkout" class="container px-10 gx-10 mb-5">
+  <h3>Refunds</h3>
       <div class="container px-10 gx-10 mb-5">
-        <h4>Refund</h4>
+        <h4>Full Refund</h4>
         <div class="input-group mb-2">
           <span class="input-group-text">refund</span>
           <textarea id="dl-refund" class="form-control" rows="15">{
   "event": "refund",
   "ecommerce": {
-    "currency": "USD",
-    "transaction_id": "T_12345",
-    "value": 12.21,
-    "affiliation": "Google Merchandise Store",
-    "coupon": "SUMMER_FUN",
-    "shipping": 3.33,
-    "tax": 1.11,
-    "items": [
-    {
-      "item_id": "SKU_12345",
-      "item_name": "Stan and Friends Tee",
-      "affiliation": "Google Merchandise Store",
-      "coupon": "SUMMER_FUN",
-      "currency": "USD",
-      "discount": 2.22,
-      "index": 0,
-      "item_brand": "Google",
-      "item_category": "Apparel",
-      "item_category2": "Adult",
-      "item_category3": "Shirts",
-      "item_category4": "Crew",
-      "item_category5": "Short sleeve",
-      "item_list_id": "related_products",
-      "item_list_name": "Related Products",
-      "item_variant": "green",
-      "location_id": "L_12345",
-      "price": 9.99,
-      "quantity": 1
-    }
+    "transaction_id": "T_12345"
     ]
   }
 }</textarea>
@@ -645,6 +621,37 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('refund')">Push refund</button>
       </div>
     </div>
+
+    <div class="container px-10 gx-10 mb-5">
+      <h4>Partial Refund</h4>
+      <div class="input-group mb-2">
+        <span class="input-group-text">refund</span>
+        <textarea id="dl-refund" class="form-control" rows="15">{
+"event": "refund",
+"ecommerce": {
+  "transaction_id": "T_12345",
+  "items": [
+  {
+    "item_id": "SKU_12345",
+    "item_name": "Stan and Friends Tee",
+    "coupon": "SUMMER_FUN",
+    "item_brand": "Google",
+    "item_category": "Apparel",
+    "item_category2": "Adult",
+    "item_category3": "Shirts",
+    "item_category4": "Crew",
+    "item_category5": "Short sleeve",
+    "item_variant": "green",
+    "price": 9.99,
+    "quantity": 1
+  }
+  ]
+}
+}</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('refund')">Push refund</button>
+    </div>
+  </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
