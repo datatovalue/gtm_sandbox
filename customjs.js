@@ -146,9 +146,20 @@ function saveToLocalStorage(item){
   return true;
 }
 
-(function (){
+function initAll(){
   var dl = localStorage.getItem("dl-init");
+
+  if(dl == undefined){
+    dl = '{"page_type": "blog post", "article_category": "analytics", "author": "krista seiden"}';
+    localStorage.setItem("dl-init",dl);
+  }
+
   var gcs = localStorage.getItem("gcs-init");
+
+  if(gcs == undefined){
+    gcs = '{"ad_storage": "denied", "analytics_storage": "denied","functionality_storage": "denied","personalization_storage": "denied", "security_storage": "granted", "wait_for_update": 500 }';
+    localStorage.setItem("gcs-init",gcs);
+  }
 
     try{
       if(document.location.pathname == "/"){
@@ -163,7 +174,7 @@ function saveToLocalStorage(item){
 
       return true;
     }catch(e){
-      console.log("that's not valid object");
+      console.log(e);
       return;
     }
-})();
+}
