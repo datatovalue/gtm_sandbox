@@ -1,5 +1,33 @@
 /* global bootstrap: false */
 
+document.addEventListener('DOMContentLoaded', (event) => {
+  var dl = localStorage.getItem("dl-init");
+  var gcs = localStorage.getItem("gcs-init");
+
+  if(dl == undefined){
+    value = '{"page_type": "blog post", "article_category": "analytics", "author": "krista seiden"}';
+  }
+
+  if(gcs == undefined){
+    gcs = '{"ad_storage": "denied", "analytics_storage": "denied","functionality_storage": "denied","personalization_storage": "denied", "security_storage": "granted", "wait_for_update": 500 }';
+  }
+
+  try{
+    if(document.location.pathname == "/"){
+      JSON.parse(dl);
+      document.getElementById("dl-init").innerHTML = dl;
+    }else{
+      JSON.parse(dl);
+      document.getElementById("gcs-init").innerHTML = gcs;
+    }
+    return true;
+  }catch(e){
+    console.log("that's not valid object");
+    return;
+  }
+})
+
+
 function pushToDataLayer(event){
   window.dataLayer = window.dataLayer || [];
   var value = document.getElementById("dl-"+event).value;
@@ -89,8 +117,14 @@ function pushToDataLayer(event){
   window.addEventListener('hashchange', setActiveItem)
 })();
 
-function saveToLocalStorage(){
-  var value = document.getElementById("dl-init").value;
+function saveToLocalStorage(item){
+  var value;
+
+  if(item == "dl"){
+    value = document.getElementById("dl-init").value;
+  }else if(item == "gcs"){
+    value = document.getElementById("gcs-init").value
+  }
 
   console.log(event);
   
@@ -101,18 +135,29 @@ function saveToLocalStorage(){
     return;
   }
 
-  localStorage.setItem("dl-init",value);
+  if(item == "dl"){
+    localStorage.setItem("dl-init",value);
+  }else if(item == "gcs"){
+    localStorage.setItem("gcs-init",value);
+  }
 
   return true;
 }
 
 (function (){
-  var value = localStorage.getItem("dl-init");
+  var dl = localStorage.getItem("dl-init");
+  var gcs = localStorage.getItem("gcs-init");
 
     try{
-      JSON.parse(value);
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push(JSON.parse(value));
+      if(document.location.pathname == "/"){
+        JSON.parse(dl);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(JSON.parse(dl));
+      }else{
+        JSON.parse(gcs);
+        function gtag() { window.dataLayer.push(arguments); }
+        gtag("consent", "default", JSON.parse(gcs));
+      }
 
       return true;
     }catch(e){
@@ -120,20 +165,3 @@ function saveToLocalStorage(){
       return;
     }
 })();
-
-document.addEventListener('DOMContentLoaded', (event) => {
-  var value = localStorage.getItem("dl-init");
-
-  if(value == undefined)
-    value = '{"page_type": "blog post", "article_category": "analytics", "author": "krista seiden"}';
-
-  try{
-    JSON.parse(value);
-    document.getElementById("dl-init").innerHTML = value;
-
-    return true;
-  }catch(e){
-    console.log("that's not valid object");
-    return;
-  }
-})
