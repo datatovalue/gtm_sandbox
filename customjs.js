@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   if(dl == undefined){
     value = '{"page_type": "blog post", "article_category": "analytics", "author": "krista seiden"}';
+    localStorage.setItem("dl-init",value);
   }
 
   if(gcs == undefined){
     gcs = '{"ad_storage": "denied", "analytics_storage": "denied","functionality_storage": "denied","personalization_storage": "denied", "security_storage": "granted", "wait_for_update": 500 }';
+    localStorage.setItem("gcs-init",gcs);
   }
 
   try{
@@ -17,7 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       JSON.parse(dl);
       document.getElementById("dl-init").innerHTML = dl;
     }else{
-      JSON.parse(dl);
+      JSON.parse(gcs);
       document.getElementById("gcs-init").innerHTML = gcs;
     }
     return true;
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     console.log("that's not valid object");
     return;
   }
-})
+});
 
 
 function pushToDataLayer(event){
@@ -123,10 +125,10 @@ function saveToLocalStorage(item){
   if(item == "dl"){
     value = document.getElementById("dl-init").value;
   }else if(item == "gcs"){
-    value = document.getElementById("gcs-init").value
+    value = document.getElementById("gcs-init").value;
   }
 
-  console.log(event);
+  console.log(item);
   
   try{
     JSON.parse(value);
