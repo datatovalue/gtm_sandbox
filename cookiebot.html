@@ -2,6 +2,21 @@ cookiebot.html
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+function gtag() { window.dataLayer.push(arguments); }
+
+gtag("consent", "default", {
+   ad_storage: "denied",
+   analytics_storage: "denied",
+   functionality_storage: "denied",
+   personalization_storage: "denied",
+   security_storage: "granted",
+   wait_for_update: 500
+});
+
+gtag("set", "ads_data_redaction", true);
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +25,7 @@ cookiebot.html
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <script type="text/javascript" src="./customjs.js"></script>
-    <script> initAll(); </script>
+
 
     <title>dataLayer Sandbox Cookiebot - Data to Value</title>
 
@@ -55,20 +70,6 @@ cookiebot.html
   </div>
 </section>
 
-<div class="container">
-  <h2>dataLayer Initialization</h2>
-  <p>In this section you can configure the dataLayer that you want to be present when you refresh this page. By default it's empty, but you can change that.</p>
-    <section id="dl_init" class="container px-10 gx-10 mb-5">
-      <h3>Configure Initialization</h3>
-      <p>This allows you to define what the dataLayer should look like when you refresh this page. Fill it out, save it, and once you refresh, these values will be in the dataLayer upon reload.</p>
-      <div>
-        <div class="input-group mb-2">
-          <span class="input-group-text">Initialization</span>
-          <textarea id="gcs-init" class="form-control" placeholder="Push custom object to dataLayer..." rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-success" onclick="saveToLocalStorage('gcs')">Save Default Values for Google Consent Mode</button>
-      </div>
-    </section>
 
         <h2>dataLayer Pushes</h2>
     <p>All the forms below execute a dataLayer.push for the contained text. By default, the page is filled with the most common Google Analytics 4 Events, but you can change them all.</p>
