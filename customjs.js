@@ -22,9 +22,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
       JSON.parse(gcs);
       document.getElementById("gcs-init").innerHTML = gcs;
     }
+    
+    initAll();
+
     return true;
   }catch(e){
-    console.log("that's not valid object");
+    console.log("that's not valid object /@init");
     return;
   }
 });
