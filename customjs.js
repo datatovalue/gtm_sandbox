@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
       JSON.parse(gcs);
       document.getElementById("gcs-init").innerHTML = gcs;
     }
-    
-    initAll();
+
+    // initAll();
 
     return true;
   }catch(e){
