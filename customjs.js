@@ -187,8 +187,9 @@ function initAll(){
 function sendToEndpoint() {
   var body = JSON.parse(document.getElementById("dl-request").value);
   var xhr = new XMLHttpRequest();
-  var url = "https://sgtm.datatovalue.nl/firestore";
+  var url = document.getElementById("dl-endpoint").value.trim();
   xhr.open("POST", url, true);
+  xhr.withCredentials = true;
   xhr.setRequestHeader("Content-Type", "application/json");
   var data = JSON.stringify(body);
   xhr.send(data);

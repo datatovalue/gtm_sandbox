@@ -44,10 +44,15 @@
         <button type="submit" class="btn btn-primary" onclick="pushToDataLayer('generate_lead')">Push to dataLayer</button>
       </div>
       <h2>HTTP request</h2>
-      <p>Send a POST request to https://sgtm.datatovalue.nl/firestore that contains the JSON below.</p>
+      <p>Send a POST request to a custom URL that contains the JSON below.</p>
       <section id="booking_id" class="container px-10 gx-10 mb-5">
         <div class="container px-10 gx-10 mb-5">
           <div class="input-group mb-2 ">
+            <span class="input-group-text">URL endpoint</span>
+            <textarea id="dl-endpoint" class="form-control" rows="1">
+            https://sgtm.datatovalue.nl/firestore</textarea>
+          </div>
+            <div class="input-group mb-2 ">
             <span class="input-group-text">JSON body</span>
             <textarea id="dl-request" class="form-control" rows="4">
              {
