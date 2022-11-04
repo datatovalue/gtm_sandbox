@@ -181,3 +181,15 @@ function initAll(){
       return;
     }
 }
+
+// Send XHR request to endpoint
+
+function sendToEndpoint() {
+  var body = JSON.parse(document.getElementById("dl-request").value);
+  var xhr = new XMLHttpRequest();
+  var url = "https://sgtm.datatovalue.nl/firestore";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  var data = JSON.stringify(body);
+  xhr.send(data);
+}
